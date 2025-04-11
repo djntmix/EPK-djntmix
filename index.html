@@ -125,6 +125,10 @@
             text-align: center;
             color: #ddd;
             margin-top: 120px; /* Para no sobreponerse al menú */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .section h2 {
@@ -291,6 +295,7 @@
                 <a href="https://open.spotify.com/track/5TXG9wSW4N4yovxrapHBPM" class="btn" target="_blank">Escucha ahora</a>
             </div>
 
+            
         </div>
     </section>
 
@@ -309,6 +314,17 @@
         // Cambia el color del menú cuando se hace scroll
         window.addEventListener('scroll', function () {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Desplazamiento suave para los enlaces del menú
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
         });
     </script>
 
