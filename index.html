@@ -14,7 +14,7 @@
 
         /* Estilo general */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial Rounded MT Bold', Arial, sans-serif; /* Cambié la tipografía */
             background-color: #0e0e0e;
             color: #fff;
             margin: 0;
@@ -34,13 +34,19 @@
 
         /* Header */
         header {
-            background-color: rgba(26, 26, 26, 0.9); /* Fondo con opacidad */
+            background-color: #1a1a1a;
             padding: 60px 20px;
             text-align: center;
             position: relative;
             transform: translateY(-30px);
             opacity: 0;
             animation: fadeInUp 2s forwards;
+        }
+
+        /* Logo */
+        header img.logo {
+            max-width: 150px;
+            margin-bottom: 20px;
         }
 
         /* Animación de desvanecimiento y desplazamiento */
@@ -92,7 +98,6 @@
             transform: translateY(30px);
             opacity: 0;
             animation: fadeInUp 2s 0.3s forwards;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra para mejorar visibilidad */
         }
 
         header p {
@@ -102,7 +107,6 @@
             transform: translateY(30px);
             opacity: 0;
             animation: fadeInUp 2s 0.5s forwards;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra para mejorar visibilidad */
         }
 
         /* Secciones */
@@ -113,20 +117,18 @@
             transform: translateY(40px);
             opacity: 0;
             animation: fadeInUp 2s forwards;
-            position: relative;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Sombra para mejorar visibilidad */
         }
 
         #about {
-            background: linear-gradient(45deg, rgba(50, 50, 50, 0.5), rgba(30, 30, 30, 0.5));
+            background-color: #1c1c1c;
         }
 
         #projects {
-            background: linear-gradient(45deg, rgba(60, 60, 60, 0.5), rgba(40, 40, 40, 0.5));
+            background-color: #2c2c2c;
         }
 
         #contact {
-            background: linear-gradient(45deg, rgba(70, 70, 70, 0.5), rgba(50, 50, 50, 0.5));
+            background-color: #1a1a1a;
         }
 
         h2 {
@@ -157,18 +159,6 @@
             transform: scale(1.2);
         }
 
-        /* Fondo opaco detrás del texto */
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Fondo oscuro con mayor opacidad */
-            z-index: -1;
-        }
-
         /* Parallax efecto */
         .parallax {
             background-image: url('https://source.unsplash.com/1600x900/?music,techno');
@@ -177,6 +167,11 @@
             background-attachment: fixed;
             background-size: cover;
             position: relative;
+            transition: background-position 0.5s ease;
+        }
+
+        .parallax:hover {
+            background-position: center top;
         }
 
         /* Footer */
@@ -225,6 +220,9 @@
 </head>
 <body>
     <header>
+        <!-- Logo -->
+        <img src="logo.png" alt="Logo DJNT" class="logo">
+
         <nav>
             <ul>
                 <li><a href="#home">Inicio</a></li>
@@ -244,7 +242,7 @@
         <p>DJNT es una plataforma innovadora dedicada a la música electrónica, desde producción hasta eventos en vivo.</p>
     </section>
 
-    <section id="projects" class="section">
+    <section id="projects" class="section parallax">
         <h2>Proyectos Recientes</h2>
         <p>Descubre nuestro último lanzamiento, "Planetary Beat".</p>
         <a href="https://open.spotify.com/intl-es/track/5TXG9wSW4N4yovxrapHBPM?si=6c4048a3fdce4e70" target="_blank">Escucha ahora</a>
@@ -273,8 +271,11 @@
 
         // Parallax effect on scroll
         window.addEventListener('scroll', () => {
-            let offset = window.pageYOffset;
-            document.querySelector('.parallax').style.backgroundPosition = `center ${offset * 0.5}px`;
+            const parallaxElement = document.querySelector('.parallax');
+            if (parallaxElement) {
+                let offset = window.pageYOffset;
+                parallaxElement.style.backgroundPosition = `center ${offset * 0.5}px`;
+            }
         });
     </script>
 </body>
