@@ -16,7 +16,7 @@
             overflow-x: hidden;
         }
 
-        /* Secciones con efecto de fondo animado */
+        /* Secciones con efectos */
         .section {
             position: relative;
             width: 100%;
@@ -25,13 +25,13 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 40px;
+            padding: 20px;
             font-size: 2rem;
             font-weight: bold;
             overflow: hidden;
         }
 
-        /* Fondo animado con degradado en movimiento */
+        /* Animaciones de fondo */
         .section::before {
             content: "";
             position: absolute;
@@ -39,10 +39,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #1f1f1f, #3a3a3a, #555555, #1f1f1f);
+            background: linear-gradient(45deg, rgba(255, 140, 0, 0.5), rgba(255, 69, 0, 0.5), rgba(255, 215, 0, 0.5));
             background-size: 300% 300%;
-            animation: moveGradient 10s infinite alternate ease-in-out;
-            filter: blur(30px);
+            animation: moveGradient 8s infinite alternate ease-in-out;
+            filter: blur(50px);
             z-index: -1;
         }
 
@@ -52,19 +52,19 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Efecto de parpadeo suave para resaltar el fondo */
+        /* Diferentes efectos por sección */
         .section:nth-child(odd)::before {
-            animation: moveGradient 12s infinite alternate ease-in-out, pulse 4s infinite ease-in-out;
+            animation: moveGradient 6s infinite alternate ease-in-out, pulse 2s infinite ease-in-out;
         }
 
         .section:nth-child(even)::before {
-            animation: moveGradient 8s infinite alternate ease-in-out, pulse 6s infinite ease-in-out;
+            animation: moveGradient 10s infinite alternate ease-in-out, pulse 3s infinite ease-in-out;
         }
 
         @keyframes pulse {
-            0% { opacity: 0.7; }
+            0% { opacity: 0.8; }
             50% { opacity: 1; }
-            100% { opacity: 0.7; }
+            100% { opacity: 0.8; }
         }
 
         /* Enlaces */
@@ -83,19 +83,19 @@
             width: 150px;
             margin-bottom: 20px;
         }
-
     </style>
 </head>
 <body>
 
     <!-- Logo -->
-    <img src="https://raw.githubusercontent.com/TU_USUARIO/TU_REPOSITORIO/main/logo.png" alt="Logo DJNTmix" class="logo">
+    <img src="https://raw.githubusercontent.com/djntmix/EPK-djntmix/main/logo.png" alt="Logo DJNTmix" class="logo">
 
     <!-- Secciones -->
-    <div class="section">Sobre DJNTmix</div>
+    <div class="section">Sobre Nosotros</div>
     <div class="section">Proyectos Recientes</div>
     <div class="section">Contacto</div>
 
 </body>
 </html>
+
 
