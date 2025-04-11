@@ -12,39 +12,63 @@
             box-sizing: border-box;
         }
 
-        /* Estilos generales */
+        /* Estilo general */
         body {
             font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
-            background-color: #0A0A0A;
+            background-color: #0e0e0e;
             color: #fff;
-            font-size: 16px;
             overflow-x: hidden;
+        }
+
+        /* Efecto de fondo */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(30, 30, 30, 1), rgba(10, 10, 10, 0.9));
+            background-size: 200% 200%;
+            animation: gradient 5s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         /* Menú fijo */
         header {
-            background-color: rgba(26, 26, 26, 0.9);
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
-            padding: 15px 20px;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: transparent;
+            transition: background 0.5s ease;
             z-index: 1000;
         }
 
-        /* Logo fijo */
-        header .logo {
+        /* Estilo cuando se hace scroll */
+        header.scrolled {
+            background: rgba(26, 26, 26, 0.9);
+        }
+
+        /* Logo */
+        .logo {
             max-width: 120px;
         }
 
-        /* Menú de navegación */
+        /* Menú */
         nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 20px;
         }
 
         nav ul li {
@@ -52,91 +76,109 @@
         }
 
         nav ul li a {
-            color: #ffcc00;
+            color: #fff;
             text-decoration: none;
             font-size: 1rem;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         nav ul li a:hover {
-            color: #ffa500;
+            color: #ffcc00;
             transform: translateY(-3px);
-            letter-spacing: 2px;
         }
 
-        /* Espaciador para evitar que el contenido quede debajo del menú */
-        .spacer {
-            height: 80px;
+        /* Contenido principal */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            padding: 20px;
         }
 
-        /* Secciones con fondos animados */
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s forwards;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-top: 10px;
+            color: #ccc;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s 0.3s forwards;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Secciones */
         .section {
             padding: 100px 20px;
             text-align: center;
+            color: #ddd;
+        }
+
+        .section h2 {
+            font-size: 3rem;
             color: #fff;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Fondo animado con degradado en cada sección */
-        .section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            animation: backgroundAnimation 8s infinite alternate;
-        }
-
-        /* Diferentes colores en cada sección */
-        #about::before {
-            background: linear-gradient(45deg, #292929, #1c1c1c, #0f0f0f);
-        }
-
-        #projects::before {
-            background: linear-gradient(45deg, #1e1e1e, #2c2c2c, #111);
-        }
-
-        #contact::before {
-            background: linear-gradient(45deg, #1a1a1a, #333, #222);
-        }
-
-        /* Animación de movimiento en degradados */
-        @keyframes backgroundAnimation {
-            0% { transform: scale(1.1) translateX(-10px); }
-            100% { transform: scale(1) translateX(10px); }
-        }
-
-        h1, h2 {
-            font-size: 2.5rem;
             font-weight: bold;
         }
 
-        p {
+        .section p {
             font-size: 1.2rem;
             margin-bottom: 20px;
         }
 
-        /* Enlaces */
-        a {
-            color: #ffcc00;
-            font-size: 1.3rem;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s ease;
+        /* Sección Proyectos con Parallax */
+        .parallax {
+            background-image: url('https://source.unsplash.com/1600x900/?music,techno');
+            height: 400px;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            position: relative;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .parallax-content {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 50px;
+        }
+
+        /* Botón de enlaces */
+        a.btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1.3rem;
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #ffcc00;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        a.btn:hover {
+            background: #ffcc00;
+            color: #000;
             transform: scale(1.1);
         }
 
         /* Footer */
         footer {
-            background-color: #1a1a1a;
+            background: #1a1a1a;
             text-align: center;
             padding: 20px;
             color: #ccc;
@@ -144,56 +186,84 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav ul { gap: 15px; }
-            h2 { font-size: 2rem; }
-            p { font-size: 1rem; }
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section h2 {
+                font-size: 2.5rem;
+            }
+
+            .parallax {
+                height: 300px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <!-- Logo fijo -->
+
+    <header id="navbar">
+        <!-- Logo -->
         <img src="logo.png" alt="Logo DJNT" class="logo">
 
-        <!-- Menú de navegación -->
+        <!-- Menú -->
         <nav>
             <ul>
-                <li><a href="#about">Sobre Nosotros</a></li>
+                <li><a href="#about">Sobre</a></li>
                 <li><a href="#projects">Proyectos</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Espaciador para evitar que el contenido quede debajo del menú -->
-    <div class="spacer"></div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Bienvenidos a DJNTmix</h1>
+        <p>El futuro de la música electrónica y las visuales.</p>
+    </div>
 
-    <!-- Sección de Bienvenida -->
-    <section class="section" style="background: linear-gradient(45deg, #2A2A2A, #1A1A1A);">
-        <h1>Bienvenidos</h1>
-        <p>Al futuro de la música electrónica y las visuales</p>
-    </section>
-
+    <!-- Sección Sobre -->
     <section id="about" class="section">
-        <h2>Sobre Nosotros</h2>
+        <h2>Sobre DJNTmix</h2>
         <p>DJNT es una plataforma innovadora dedicada a la música electrónica, desde producción hasta eventos en vivo.</p>
     </section>
 
-    <section id="projects" class="section">
-        <h2>Proyectos Recientes</h2>
-        <p>Descubre nuestro último lanzamiento, "Planetary Beat".</p>
-        <a href="https://open.spotify.com/intl-es/track/5TXG9wSW4N4yovxrapHBPM?si=6c4048a3fdce4e70" target="_blank">Escucha ahora</a>
+    <!-- Sección Proyectos con Parallax -->
+    <section id="projects" class="parallax">
+        <div class="parallax-content">
+            <h2>Proyectos Recientes</h2>
+            <p>Descubre nuestro último lanzamiento, "Planetary Beat".</p>
+            <a href="https://open.spotify.com/track/5TXG9wSW4N4yovxrapHBPM" class="btn" target="_blank">Escucha ahora</a>
+        </div>
     </section>
 
+    <!-- Sección Contacto -->
     <section id="contact" class="section">
         <h2>Contacto</h2>
-        <p>¿Interesado en colaborar? Ponte en contacto con nosotros.</p>
         <p>Email: <a href="mailto:info@djntmix.com">info@djntmix.com</a></p>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 DJNTmix | Todos los derechos reservados</p>
     </footer>
+
+    <script>
+        // Cambia el color del menú cuando se hace scroll
+        window.addEventListener('scroll', function () {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+
 </body>
 </html>
+
 
