@@ -326,7 +326,7 @@
                 <p>Un viaje sonoro hacia nuevos horizontes.</p>
                 <a href="https://open.spotify.com/track/5TXG9wSW4N4yovxrapHBPM" class="btn" target="_blank">Escucha ahora</a>
             </div>
-           
+          
         </div>
     </section>
 
@@ -347,13 +347,15 @@
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Desplazamiento suave para los enlaces del menú
+        // Desplazamiento suave para los enlaces del menú, ajustando el scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                let offset = 120; // Ajusta este valor según el tamaño de tu menú
+                let targetElement = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: targetElement.offsetTop - offset, // Ajuste de la posición
+                    behavior: 'smooth'
                 });
             });
         });
@@ -361,6 +363,3 @@
 
 </body>
 </html>
-
-
-
