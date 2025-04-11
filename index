@@ -141,13 +141,13 @@
     <section id="projects" class="section">
         <h2>Proyectos Recientes</h2>
         <p>Descubre nuestro último lanzamiento, "Planetary Beat".</p>
-        <a href="https://link-a-tu-proyecto" target="_blank">Escucha ahora</a>
+        <a href="https://open.spotify.com/intl-es/track/5TXG9wSW4N4yovxrapHBPM?si=6c4048a3fdce4e70" target="_blank">Escucha ahora</a>
     </section>
 
     <section id="contact" class="section">
         <h2>Contacto</h2>
         <p>¿Interesado en colaborar? Ponte en contacto con nosotros.</p>
-        <p>Email: <a href="mailto:contacto@djntmix.com">contacto@djntmix.com</a></p>
+        <p>Email: <a href="mailto:info@djntmix.com">info@djntmix.com</a></p>
     </section>
 
     <footer>
