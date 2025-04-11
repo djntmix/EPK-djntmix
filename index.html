@@ -91,7 +91,7 @@
             height: 100vh;
             text-align: center;
             padding: 20px;
-            margin-top: 140px; /* Aumentar espacio para no superponerse con el menú */
+            margin-top: 120px; /* Aumentar espacio para no superponerse con el menú */
         }
 
         .hero h1 {
@@ -124,7 +124,7 @@
             padding: 100px 20px;
             text-align: center;
             color: #ddd;
-            margin-top: 120px; /* Para no sobreponerse al menú */
+            margin-top: 140px; /* Asegura que no se superpongan con el menú */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -150,7 +150,7 @@
         .section.projects {
             background: #1a1a1a;
             padding: 80px 20px;
-            margin-top: 150px; /* Para no superponerse al menú */
+            margin-top: 140px; /* Asegura que no se superpongan con el menú */
         }
 
         .projects .project-item {
@@ -253,6 +253,39 @@
             .projects .project-item .project-card {
                 max-width: 100%;
             }
+
+            /* Ajustar márgenes de las secciones para dispositivos pequeños */
+            .hero {
+                margin-top: 120px; /* Asegura que la primera sección no quede debajo del menú */
+            }
+
+            .section {
+                margin-top: 180px; /* Para evitar que las secciones se superpongan con el menú */
+            }
+
+            .projects {
+                margin-top: 180px; /* Ajustar el margen superior de la sección de proyectos */
+            }
+        }
+
+        /* Para dispositivos más pequeños */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .projects .project-item .project-card {
+                padding: 15px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -274,7 +307,7 @@
 
     <!-- Hero Section -->
     <div class="hero">
-        <h1>Bienvenidos</h1>
+        <h1>Bienvenid@s</h1>
         <p>Al futuro de la música electrónica y las visuales.</p>
     </div>
 
@@ -294,8 +327,7 @@
                 <p>Un viaje sonoro hacia nuevos horizontes.</p>
                 <a href="https://open.spotify.com/track/5TXG9wSW4N4yovxrapHBPM" class="btn" target="_blank">Escucha ahora</a>
             </div>
-
-            
+           
         </div>
     </section>
 
@@ -330,4 +362,5 @@
 
 </body>
 </html>
+
 
