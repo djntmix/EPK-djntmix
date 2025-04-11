@@ -5,84 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DJNTmix - Landing Page</title>
     <style>
+        /* Reset general */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Estilo general */
         body {
             font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
-            background-color: #0e0e0e;
-            color: #fff;
-            margin: 0;
-            padding: 0;
             background: linear-gradient(45deg, rgba(30, 30, 30, 1), rgba(10, 10, 10, 0.9));
             background-size: 200% 200%;
             animation: gradient 5s ease infinite;
+            color: #fff;
             font-size: 16px;
             overflow-x: hidden;
         }
 
+        /* Animación de fondo */
         @keyframes gradient {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
 
+        /* Menú fijo */
         header {
-            background-color: #1a1a1a;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            animation: fadeInUp 2s forwards;
+            background-color: rgba(26, 26, 26, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
         }
 
-        header img.logo {
-            max-width: 150px;
+        /* Logo fijo en la esquina superior izquierda */
+        header .logo {
+            max-width: 120px;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        header nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        header nav ul {
+        /* Menú de navegación */
+        nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 30px;
         }
 
-        header nav ul li a {
-            color: #fff;
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: #ffcc00;
             text-decoration: none;
             font-size: 1rem;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease;
         }
 
-        header nav ul li a:hover {
-            color: #ffcc00;
-            transform: scale(1.1);
+        nav ul li a:hover {
+            color: #ffa500;
+            transform: translateY(-3px);
+            letter-spacing: 2px;
         }
 
+        /* Espaciado para que el contenido no quede debajo del menú */
+        .spacer {
+            height: 80px;
+        }
+
+        /* Secciones */
         .section {
             padding: 80px 20px;
             text-align: center;
             color: #ddd;
-            animation: fadeInUp 2s forwards;
         }
+
+        #about { background-color: #1c1c1c; }
+        #projects { background-color: #2c2c2c; }
+        #contact { background-color: #1a1a1a; }
 
         h2 {
             font-size: 2.5rem;
@@ -95,6 +100,7 @@
             margin-bottom: 20px;
         }
 
+        /* Enlaces */
         a {
             color: #ffcc00;
             font-size: 1.3rem;
@@ -105,58 +111,50 @@
 
         a:hover {
             text-decoration: underline;
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
 
+        /* Efecto Parallax */
         .parallax {
             background-image: url('https://source.unsplash.com/1600x900/?music,techno');
             height: 400px;
-            background-position: center;
             background-attachment: fixed;
             background-size: cover;
-            position: relative;
         }
 
+        /* Footer */
         footer {
             background-color: #1a1a1a;
             text-align: center;
             padding: 20px;
-            font-size: 1rem;
             color: #ccc;
         }
 
-        footer p {
-            font-weight: bold;
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            header nav {
-                position: static;
-                text-align: center;
-                margin-top: 10px;
-            }
-
-            header nav ul {
-                justify-content: center;
-                gap: 15px;
-            }
+            nav ul { gap: 15px; }
+            h2 { font-size: 2rem; }
+            p { font-size: 1rem; }
         }
     </style>
 </head>
 <body>
     <header>
+        <!-- Logo fijo -->
         <img src="logo.png" alt="Logo DJNT" class="logo">
+
+        <!-- Menú de navegación -->
         <nav>
             <ul>
-                <li><a href="#home">Inicio</a></li>
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#projects">Proyectos</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
-        <h1>Bienvenidos</h1>
-        <p>Al futuro de la música electrónica y las visuales.</p>
     </header>
+
+    <!-- Espaciador para evitar que el contenido quede debajo del menú -->
+    <div class="spacer"></div>
 
     <section id="about" class="section">
         <h2>Sobre DJNT</h2>
@@ -180,4 +178,5 @@
     </footer>
 </body>
 </html>
+
 
