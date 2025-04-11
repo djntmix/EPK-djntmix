@@ -39,7 +39,7 @@
             100% { background-position: 100% 50%; }
         }
 
-        /* Menú fijo */
+        /* Menú fijo con fondo sólido */
         header {
             position: fixed;
             width: 100%;
@@ -49,14 +49,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(26, 26, 26, 0.9); /* Fondo opaco por defecto */
-            transition: background 0.5s ease;
+            background: #1a1a1a; /* Fondo sólido */
             z-index: 1000;
-        }
-
-        /* Estilo cuando se hace scroll */
-        header.scrolled {
-            background: rgba(26, 26, 26, 0.95);
         }
 
         /* Logo */
@@ -283,12 +277,12 @@
         <h2>Proyectos Recientes</h2>
         <div class="project-item">
             <div class="project-card">
-                <img src="https://source.unsplash.com/300x200/?music,techno" alt="">
+                <img src="https://source.unsplash.com/300x200/?music,techno" alt="Proyecto 1">
                 <h3>Planetary Beat</h3>
                 <p>Un viaje sonoro hacia nuevos horizontes.</p>
                 <a href="https://open.spotify.com/track/5TXG9wSW4N4yovxrapHBPM" class="btn" target="_blank">Escucha ahora</a>
             </div>
-        
+           
         </div>
     </section>
 
@@ -312,5 +306,3 @@
 
 </body>
 </html>
-
-
