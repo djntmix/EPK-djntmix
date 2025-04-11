@@ -91,7 +91,7 @@
             height: 100vh;
             text-align: center;
             padding: 20px;
-            margin-top: 120px; /* Para no sobreponerse al menú */
+            margin-top: 140px; /* Aumentar espacio para no superponerse con el menú */
         }
 
         .hero h1 {
@@ -99,7 +99,7 @@
             font-weight: bold;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUp 1.5s forwards;
+            animation: fadeInUp 2s forwards;
         }
 
         .hero p {
@@ -108,7 +108,7 @@
             color: #ccc;
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUp 1.5s 0.3s forwards;
+            animation: fadeInUp 2s 0.3s forwards;
         }
 
         /* Animaciones */
@@ -124,23 +124,29 @@
             padding: 100px 20px;
             text-align: center;
             color: #ddd;
+            margin-top: 120px; /* Para no sobreponerse al menú */
         }
 
         .section h2 {
             font-size: 3rem;
             color: #fff;
             font-weight: bold;
+            text-shadow: 2px 2px 10px rgba(255, 204, 0, 0.5); /* Resalta el texto */
+            animation: fadeInUp 2s 0.5s forwards;
         }
 
         .section p {
             font-size: 1.2rem;
             margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(255, 204, 0, 0.3); /* Resalta el texto */
+            animation: fadeInUp 2s 0.8s forwards;
         }
 
         /* Sección Proyectos */
         .section.projects {
             background: #1a1a1a;
             padding: 80px 20px;
+            margin-top: 150px; /* Para no superponerse al menú */
         }
 
         .projects .project-item {
@@ -158,11 +164,13 @@
             padding: 20px;
             max-width: 300px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 2s 1s forwards;
         }
 
         .projects .project-item .project-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0px 4px 20px rgba(255, 204, 0, 0.6); /* Resalta cuando se pasa el ratón */
         }
 
         .projects .project-item img {
@@ -277,12 +285,12 @@
         <h2>Proyectos Recientes</h2>
         <div class="project-item">
             <div class="project-card">
-                <img src="https://source.unsplash.com/300x200/?music,techno" alt="Proyecto 1">
+                <img src="https://source.unsplash.com/300x200/?music,techno" alt="">
                 <h3>Planetary Beat</h3>
                 <p>Un viaje sonoro hacia nuevos horizontes.</p>
                 <a href="https://open.spotify.com/track/5TXG9wSW4N4yovxrapHBPM" class="btn" target="_blank">Escucha ahora</a>
             </div>
-           
+
         </div>
     </section>
 
@@ -306,3 +314,4 @@
 
 </body>
 </html>
+
