@@ -16,48 +16,6 @@
             overflow-x: hidden;
         }
 
-        /* Barra superior con logo y menú */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            background: rgba(18, 18, 18, 0.9);
-            z-index: 1000;
-        }
-
-        .logo {
-            width: 120px;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links li {
-            display: inline;
-        }
-
-        .nav-links a {
-            color: #ff9800;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8);
-        }
-
         /* Secciones con efecto de fondo animado */
         .section {
             position: relative;
@@ -67,15 +25,13 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            flex-direction: column;
-            padding: 100px 20px;
+            padding: 40px;
             font-size: 2rem;
             font-weight: bold;
             overflow: hidden;
-            z-index: 1;
         }
 
-        /* Fondo animado */
+        /* Fondo animado con degradado en movimiento */
         .section::before {
             content: "";
             position: absolute;
@@ -83,10 +39,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #1c1c1c, #2e2e2e, #444444, #1c1c1c);
+            background: linear-gradient(45deg, #1f1f1f, #3a3a3a, #555555, #1f1f1f);
             background-size: 300% 300%;
             animation: moveGradient 10s infinite alternate ease-in-out;
-            opacity: 0.9;
+            filter: blur(30px);
             z-index: -1;
         }
 
@@ -96,57 +52,49 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Asegurar que el texto siempre sea visible */
-        .section h2, .section p, .section a {
-            position: relative;
-            z-index: 2;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        /* Efecto de parpadeo suave para resaltar el fondo */
+        .section:nth-child(odd)::before {
+            animation: moveGradient 12s infinite alternate ease-in-out, pulse 4s infinite ease-in-out;
         }
 
-        /* Enlaces dentro de secciones */
-        .section a {
+        .section:nth-child(even)::before {
+            animation: moveGradient 8s infinite alternate ease-in-out, pulse 6s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+
+        /* Enlaces */
+        a {
             color: #ff9800;
             text-decoration: none;
             font-size: 1.5rem;
-            font-weight: bold;
-            margin-top: 10px;
         }
 
-        .section a:hover {
+        a:hover {
             text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8);
+        }
+
+        /* Logo */
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
         }
 
     </style>
 </head>
 <body>
 
-    <!-- Barra de navegación -->
-    <nav class="navbar">
-        <img src="https://raw.githubusercontent.com/TU_USUARIO/TU_REPOSITORIO/main/logo.png" alt="Logo DJNTmix" class="logo">
-        <ul class="nav-links">
-            <li><a href="#sobre">Sobre DJNTmix</a></li>
-            <li><a href="#proyectos">Proyectos Recientes</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
+    <!-- Logo -->
+    <img src="https://raw.githubusercontent.com/TU_USUARIO/TU_REPOSITORIO/main/logo.png" alt="Logo DJNTmix" class="logo">
 
     <!-- Secciones -->
-    <div id="sobre" class="section">
-        <h2>Sobre DJNTmix</h2>
-        <p>DJNTmix es un DJ y productor de música electrónica con un enfoque innovador en la escena techno.</p>
-    </div>
-
-    <div id="proyectos" class="section">
-        <h2>Proyectos Recientes</h2>
-        <p>Explora los últimos lanzamientos, incluyendo <strong>Planetary Beat</strong>.</p>
-        <a href="#">Escuchar Ahora</a>
-    </div>
-
-    <div id="contacto" class="section">
-        <h2>Contacto</h2>
-        <p>Para bookings y colaboraciones, escríbenos.</p>
-        <a href="mailto:contacto@djntmix.com">Enviar Email</a>
-    </div>
+    <div class="section">Sobre DJNTmix</div>
+    <div class="section">Proyectos Recientes</div>
+    <div class="section">Contacto</div>
 
 </body>
 </html>
