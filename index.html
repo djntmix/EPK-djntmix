@@ -143,25 +143,49 @@
             margin-bottom: 20px;
         }
 
-        /* Sección Proyectos con Parallax */
-        .parallax {
-            background-image: url('https://source.unsplash.com/1600x900/?music,techno');
-            height: 400px;
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            position: relative;
+        /* Sección Proyectos */
+        .section.projects {
+            background: #1a1a1a;
+            padding: 80px 20px;
         }
 
-        .parallax-content {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 50px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #fff;
+        .projects .project-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .projects .project-item .project-card {
+            background: #333;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 300px;
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .projects .project-item .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .projects .project-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .projects .project-item h3 {
+            margin-top: 20px;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+
+        .projects .project-item p {
+            color: #ccc;
+            margin-top: 10px;
+            font-size: 1.2rem;
         }
 
         /* Botón de enlaces */
@@ -205,12 +229,12 @@
                 font-size: 2.5rem;
             }
 
-            .parallax {
-                height: 300px;
+            .projects .project-item {
+                gap: 15px;
             }
 
-            nav ul {
-                gap: 10px;
+            .projects .project-item .project-card {
+                max-width: 100%;
             }
         }
     </style>
@@ -243,12 +267,23 @@
         <p>DJNT es una plataforma innovadora dedicada a la música electrónica, desde producción hasta eventos en vivo.</p>
     </section>
 
-    <!-- Sección Proyectos con Parallax -->
-    <section id="projects" class="parallax">
-        <div class="parallax-content">
-            <h2>Proyectos Recientes</h2>
-            <p>Descubre nuestro último lanzamiento, "Planetary Beat".</p>
-            <a href="https://open.spotify.com/track/5TXG9wSW4N4yovxrapHBPM" class="btn" target="_blank">Escucha ahora</a>
+    <!-- Sección Proyectos -->
+    <section id="projects" class="section projects">
+        <h2>Proyectos Recientes</h2>
+        <div class="project-item">
+            <div class="project-card">
+                <img src="https://source.unsplash.com/300x200/?music,techno" alt="Proyecto 1">
+                <h3>Planetary Beat</h3>
+                <p>Un viaje sonoro hacia nuevos horizontes.</p>
+                <a href="https://open.spotify.com/track/5TXG9wSW4N4yovxrapHBPM" class="btn" target="_blank">Escucha ahora</a>
+            </div>
+
+            <div class="project-card">
+                <img src="https://source.unsplash.com/300x200/?techno,album" alt="Proyecto 2">
+                <h3>Techno Sunrise</h3>
+                <p>Un amanecer lleno de energía electrónica.</p>
+                <a href="https://open.spotify.com/track/3y4bfgL1nZgN6weN7jea0k" class="btn" target="_blank">Escucha ahora</a>
+            </div>
         </div>
     </section>
 
