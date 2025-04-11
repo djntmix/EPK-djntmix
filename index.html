@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DJNTmix - Landing Page</title>
     <style>
-        /* Reset general */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Estilo general */
         body {
             font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
             background-color: #0e0e0e;
@@ -26,34 +24,31 @@
             overflow-x: hidden;
         }
 
-        /* Animación de degradado */
         @keyframes gradient {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
 
-        /* Header */
         header {
             background-color: #1a1a1a;
-            padding: 60px 20px;
+            padding: 20px;
             text-align: center;
             position: relative;
-            transform: translateY(-30px);
-            opacity: 0;
             animation: fadeInUp 2s forwards;
         }
 
-        /* Logo */
         header img.logo {
             max-width: 150px;
-            margin-bottom: 20px;
         }
 
-        /* Animación de desvanecimiento y desplazamiento */
         @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
             to {
-                transform: translateY(0);
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
@@ -66,11 +61,7 @@
         header nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
-        }
-
-        header nav ul li {
-            display: inline;
+            gap: 20px;
         }
 
         header nav ul li a {
@@ -78,58 +69,25 @@
             text-decoration: none;
             font-size: 1rem;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         header nav ul li a:hover {
             color: #ffcc00;
-            transform: translateY(-5px);
-            letter-spacing: 2px;
+            transform: scale(1.1);
         }
 
-        header .header-content {
-            margin-top: 100px;
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            color: #fff;
-            font-weight: bold;
-            transform: translateY(30px);
-            opacity: 0;
-            animation: fadeInUp 2s 0.3s forwards;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: #ccc;
-            font-weight: bold;
-            transform: translateY(30px);
-            opacity: 0;
-            animation: fadeInUp 2s 0.5s forwards;
-        }
-
-        /* Secciones */
         .section {
             padding: 80px 20px;
             text-align: center;
             color: #ddd;
-            transform: translateY(40px);
-            opacity: 0;
             animation: fadeInUp 2s forwards;
-        }
-
-        #about, #projects, #contact {
-            background-color: #1c1c1c;
         }
 
         h2 {
             font-size: 2.5rem;
             color: #fff;
             font-weight: bold;
-            transform: translateY(40px);
-            opacity: 0;
-            animation: fadeInUp 2s 0.7s forwards;
         }
 
         p {
@@ -137,13 +95,12 @@
             margin-bottom: 20px;
         }
 
-        /* Enlaces */
         a {
             color: #ffcc00;
             font-size: 1.3rem;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease, scale 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         a:hover {
@@ -151,20 +108,38 @@
             transform: scale(1.2);
         }
 
-        /* Footer */
+        .parallax {
+            background-image: url('https://source.unsplash.com/1600x900/?music,techno');
+            height: 400px;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            position: relative;
+        }
+
         footer {
             background-color: #1a1a1a;
             text-align: center;
             padding: 20px;
             font-size: 1rem;
             color: #ccc;
-            transform: translateY(40px);
-            opacity: 0;
-            animation: fadeInUp 2s 1s forwards;
         }
 
         footer p {
             font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            header nav {
+                position: static;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            header nav ul {
+                justify-content: center;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -179,11 +154,30 @@
                 <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
-        <div class="header-content">
-            <h1>Bienvenidos a DJNT</h1>
-            <p>El futuro de la música electrónica y las visuales.</p>
-        </div>
+        <h1>Bienvenidos a DJNT</h1>
+        <p>El futuro de la música electrónica y las visuales.</p>
     </header>
+
+    <section id="about" class="section">
+        <h2>Sobre DJNT</h2>
+        <p>DJNT es una plataforma innovadora dedicada a la música electrónica, desde producción hasta eventos en vivo.</p>
+    </section>
+
+    <section id="projects" class="section parallax">
+        <h2>Proyectos Recientes</h2>
+        <p>Descubre nuestro último lanzamiento, "Planetary Beat".</p>
+        <a href="https://open.spotify.com/intl-es/track/5TXG9wSW4N4yovxrapHBPM?si=6c4048a3fdce4e70" target="_blank">Escucha ahora</a>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contacto</h2>
+        <p>¿Interesado en colaborar? Ponte en contacto con nosotros.</p>
+        <p>Email: <a href="mailto:info@djntmix.com">info@djntmix.com</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 DJNTmix | Todos los derechos reservados</p>
+    </footer>
 </body>
 </html>
 
