@@ -3,282 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJNTmix - Landing Page</title>
+    <title>EPK DJNTmix</title>
     <style>
-        /* Reset general */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Estilo general */
+        /* Estilos generales */
         body {
-            font-family: 'Arial Rounded MT Bold', Arial, sans-serif; /* Cambié la tipografía */
-            background-color: #0e0e0e;
-            color: #fff;
+            font-family: "Arial Rounded MT Bold", sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(45deg, rgba(30, 30, 30, 1), rgba(10, 10, 10, 0.9));
-            background-size: 200% 200%;
-            animation: gradient 5s ease infinite;
-            font-size: 16px;
+            background-color: #121212;
+            color: white;
+            text-align: center;
             overflow-x: hidden;
         }
 
-        /* Animación de degradado */
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-
-        /* Header */
-        header {
-            background-color: #1a1a1a;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            transform: translateY(-30px);
-            opacity: 0;
-            animation: fadeInUp 2s forwards;
-        }
-
-        /* Logo */
-        header img.logo {
-            max-width: 150px;
-            margin-bottom: 20px;
-        }
-
-        /* Animación de desvanecimiento y desplazamiento */
-        @keyframes fadeInUp {
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        header nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
-
-        header nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-        }
-
-        header nav ul li {
-            display: inline;
-        }
-
-        header nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease;
-        }
-
-        header nav ul li a:hover {
-            color: #ffcc00;
-            transform: translateY(-5px);
-            letter-spacing: 2px;
-        }
-
-        header .header-content {
-            margin-top: 100px;
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            color: #fff;
-            font-weight: bold;
-            transform: translateY(30px);
-            opacity: 0;
-            animation: fadeInUp 2s 0.3s forwards;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: #ccc;
-            font-weight: bold;
-            transform: translateY(30px);
-            opacity: 0;
-            animation: fadeInUp 2s 0.5s forwards;
-        }
-
-        /* Secciones */
+        /* Secciones con efecto de fondo animado */
         .section {
-            padding: 80px 20px;
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            color: #ddd;
-            transform: translateY(40px);
-            opacity: 0;
-            animation: fadeInUp 2s forwards;
-        }
-
-        #about {
-            background-color: #1c1c1c;
-        }
-
-        #projects {
-            background-color: #2c2c2c;
-        }
-
-        #contact {
-            background-color: #1a1a1a;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            color: #fff;
+            flex-direction: column;
+            padding: 80px 20px;
+            font-size: 2rem;
             font-weight: bold;
-            transform: translateY(40px);
-            opacity: 0;
-            animation: fadeInUp 2s 0.7s forwards;
+            overflow: hidden;
+            z-index: 1;
         }
 
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+        /* Fondo animado con degradado en movimiento */
+        .section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1c1c1c, #2e2e2e, #444444, #1c1c1c);
+            background-size: 300% 300%;
+            animation: moveGradient 10s infinite alternate ease-in-out;
+            opacity: 0.9;
+            z-index: -1;
+        }
+
+        @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Asegurar que el texto siempre sea visible */
+        .section h2, .section p, .section a {
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
         }
 
         /* Enlaces */
         a {
-            color: #ffcc00;
-            font-size: 1.3rem;
+            color: #ff9800;
             text-decoration: none;
+            font-size: 1.5rem;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease, scale 0.3s ease;
         }
 
         a:hover {
-            text-decoration: underline;
-            transform: scale(1.2);
+            text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8);
         }
 
-        /* Parallax efecto */
-        .parallax {
-            background-image: url('https://source.unsplash.com/1600x900/?music,techno');
-            height: 400px;
-            background-position: center;
-            background-attachment: fixed;
-            background-size: cover;
-            position: relative;
-            transition: background-position 0.5s ease;
+        /* Logo */
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
         }
 
-        .parallax:hover {
-            background-position: center top;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1a1a1a;
-            text-align: center;
-            padding: 20px;
-            font-size: 1rem;
-            color: #ccc;
-            transform: translateY(40px);
-            opacity: 0;
-            animation: fadeInUp 2s 1s forwards;
-        }
-
-        footer p {
-            font-weight: bold;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
-            .section {
-                padding: 40px 20px;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-
-            header nav ul {
-                gap: 15px;
-            }
-        }
     </style>
 </head>
 <body>
-    <header>
-        <!-- Logo -->
-        <img src="logo.png" alt="Logo DJNT" class="logo">
 
-        <nav>
-            <ul>
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#about">Sobre Nosotros</a></li>
-                <li><a href="#projects">Proyectos</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-        </nav>
-        <div class="header-content">
-            <h1>Bienvenidos</h1>
-            <p>Al futuro de la música electrónica y las visuales.</p>
-        </div>
-    </header>
+    <!-- Logo -->
+    <img src="https://raw.githubusercontent.com/TU_USUARIO/TU_REPOSITORIO/main/logo.png" alt="Logo DJNTmix" class="logo">
 
-    <section id="about" class="section">
-        <h2>Sobre Nosotros</h2>
-        <p>DJNT es una plataforma innovadora dedicada a la música electrónica, desde producción hasta eventos en vivo.</p>
-    </section>
+    <!-- Secciones -->
+    <div class="section">
+        <h2>Sobre DJNTmix</h2>
+        <p>DJNTmix es un DJ y productor de música electrónica con un enfoque innovador en la escena techno.</p>
+    </div>
 
-    <section id="projects" class="section parallax">
+    <div class="section">
         <h2>Proyectos Recientes</h2>
-        <p>Descubre nuestro último lanzamiento, "Planetary Beat".</p>
-        <a href="https://open.spotify.com/intl-es/track/5TXG9wSW4N4yovxrapHBPM?si=6c4048a3fdce4e70" target="_blank">Escucha ahora</a>
-    </section>
+        <p>Explora los últimos lanzamientos, incluyendo <strong>Planetary Beat</strong>.</p>
+        <a href="#">Escuchar Ahora</a>
+    </div>
 
-    <section id="contact" class="section">
+    <div class="section">
         <h2>Contacto</h2>
-        <p>¿Interesado en colaborar? Ponte en contacto con nosotros.</p>
-        <p>Email: <a href="mailto:info@djntmix.com">info@djntmix.com</a></p>
-    </section>
+        <p>Para bookings y colaboraciones, escríbenos.</p>
+        <a href="mailto:contacto@djntmix.com">Enviar Email</a>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 DJNTmix | Todos los derechos reservados</p>
-    </footer>
-
-    <script>
-        // Desplazamiento suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Parallax effect on scroll
-        window.addEventListener('scroll', () => {
-            const parallaxElement = document.querySelector('.parallax');
-            if (parallaxElement) {
-                let offset = window.pageYOffset;
-                parallaxElement.style.backgroundPosition = `center ${offset * 0.5}px`;
-            }
-        });
-    </script>
 </body>
 </html>
-
-
