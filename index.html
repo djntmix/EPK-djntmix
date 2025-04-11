@@ -49,14 +49,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: transparent;
+            background: rgba(26, 26, 26, 0.9); /* Fondo opaco por defecto */
             transition: background 0.5s ease;
             z-index: 1000;
         }
 
         /* Estilo cuando se hace scroll */
         header.scrolled {
-            background: rgba(26, 26, 26, 0.9);
+            background: rgba(26, 26, 26, 0.95);
         }
 
         /* Logo */
@@ -97,6 +97,7 @@
             height: 100vh;
             text-align: center;
             padding: 20px;
+            margin-top: 100px; /* Para no sobreponerse al menú */
         }
 
         .hero h1 {
@@ -155,6 +156,12 @@
         .parallax-content {
             background: rgba(0, 0, 0, 0.6);
             padding: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
         }
 
         /* Botón de enlaces */
@@ -265,5 +272,3 @@
 
 </body>
 </html>
-
-
