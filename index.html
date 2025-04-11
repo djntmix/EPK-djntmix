@@ -38,9 +38,9 @@
             padding: 60px 20px;
             text-align: center;
             position: relative;
-            transform: translateY(-20px);
+            transform: translateY(-30px);
             opacity: 0;
-            animation: fadeInUp 1.5s forwards;
+            animation: fadeInUp 2s forwards;
         }
 
         /* Animación de desvanecimiento y desplazamiento */
@@ -60,7 +60,7 @@
         header nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 30px;
         }
 
         header nav ul li {
@@ -72,12 +72,13 @@
             text-decoration: none;
             font-size: 1rem;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease, letter-spacing 0.3s ease;
         }
 
         header nav ul li a:hover {
             color: #ffcc00;
             transform: translateY(-5px);
+            letter-spacing: 2px;
         }
 
         header .header-content {
@@ -85,12 +86,12 @@
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: #fff;
             font-weight: bold;
             transform: translateY(30px);
             opacity: 0;
-            animation: fadeInUp 1.5s 0.3s forwards;
+            animation: fadeInUp 2s 0.3s forwards;
         }
 
         header p {
@@ -99,17 +100,17 @@
             font-weight: bold;
             transform: translateY(30px);
             opacity: 0;
-            animation: fadeInUp 1.5s 0.5s forwards;
+            animation: fadeInUp 2s 0.5s forwards;
         }
 
         /* Secciones */
         .section {
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
             color: #ddd;
-            transform: translateY(20px);
+            transform: translateY(40px);
             opacity: 0;
-            animation: fadeInUp 1.5s forwards;
+            animation: fadeInUp 2s forwards;
         }
 
         #about {
@@ -125,12 +126,12 @@
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #fff;
             font-weight: bold;
-            transform: translateY(20px);
+            transform: translateY(40px);
             opacity: 0;
-            animation: fadeInUp 1.5s 0.7s forwards;
+            animation: fadeInUp 2s 0.7s forwards;
         }
 
         p {
@@ -141,15 +142,30 @@
         /* Enlaces */
         a {
             color: #ffcc00;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease, scale 0.3s ease;
         }
 
         a:hover {
             text-decoration: underline;
-            transform: scale(1.1);
+            transform: scale(1.2);
+        }
+
+        /* Parallax efecto */
+        .parallax {
+            background-image: url('https://source.unsplash.com/1600x900/?music,techno');
+            height: 400px;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            position: relative;
+            transition: background-position 0.5s ease;
+        }
+
+        .parallax:hover {
+            background-position: center top;
         }
 
         /* Footer */
@@ -159,6 +175,9 @@
             padding: 20px;
             font-size: 1rem;
             color: #ccc;
+            transform: translateY(40px);
+            opacity: 0;
+            animation: fadeInUp 2s 1s forwards;
         }
 
         footer p {
@@ -180,7 +199,7 @@
             }
 
             h2 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             p {
@@ -188,7 +207,7 @@
             }
 
             header nav ul {
-                gap: 10px;
+                gap: 15px;
             }
         }
     </style>
@@ -204,17 +223,17 @@
             </ul>
         </nav>
         <div class="header-content">
-            <h1>Bienvenidos a DJNTmix</h1>
+            <h1>Bienvenidos a DJNT</h1>
             <p>El futuro de la música electrónica y las visuales.</p>
         </div>
     </header>
 
     <section id="about" class="section">
-        <h2>Sobre DJNTmix</h2>
-        <p>DJNTmix es una plataforma innovadora dedicada a la música electrónica, desde producción hasta eventos en vivo.</p>
+        <h2>Sobre DJNT</h2>
+        <p>DJNT es una plataforma innovadora dedicada a la música electrónica, desde producción hasta eventos en vivo.</p>
     </section>
 
-    <section id="projects" class="section">
+    <section id="projects" class="section parallax">
         <h2>Proyectos Recientes</h2>
         <p>Descubre nuestro último lanzamiento, "Planetary Beat".</p>
         <a href="https://open.spotify.com/intl-es/track/5TXG9wSW4N4yovxrapHBPM?si=6c4048a3fdce4e70" target="_blank">Escucha ahora</a>
@@ -240,6 +259,13 @@
                 });
             });
         });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            let offset = window.pageYOffset;
+            document.querySelector('.parallax').style.backgroundPosition = `center ${offset * 0.5}px`;
+        });
     </script>
 </body>
 </html>
+
